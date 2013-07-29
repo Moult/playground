@@ -55,9 +55,8 @@ function auto_p($str, $br = TRUE)
 }
 
 include 'wp-blog-header.php';
-echo 'asdf';
 
-$args = 'cat=27';
+$args = 'cat=27&posts_per_page=1000';
 $order = 0;
 
 // The Query
@@ -68,13 +67,6 @@ $query = 'INSERT INTO `digipipe_enterprise`.`ent21_k2_items` (`id`, `title`, `al
 
 // The Loop
 while ( have_posts() ) : the_post();
-    echo '<li>';
-    the_title();
-    //var_dump($post);
-    //$category = get_the_category();
-    //echo $category[0]->name;
-    //echo $category[0]->cat_ID;
-    echo '</li>';
     $query .= '(';
     $query .= 'NULL, '; # id
     $query .= '\''. mysql_real_escape_string($post->post_title) .'\', '; # title
